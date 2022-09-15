@@ -1,15 +1,36 @@
-//Aqui estamos criando a nossa função pra quando a página for carregada
 document.addEventListener('DOMContentLoaded',()=>{
 
     let squares= document.querySelectorAll('.square')
-
-    // Agora eu vou adicionar pra cada um desses elementos um evento de click
-
     squares.forEach((square)=>{
         square.addEventListener('click',handleClick)
     })
 })
 
 function handleClick(event){
-    console.log(event.target)
+    let square= event.target
+    let position= square.id
+
+    if(handleMove(position)){
+        setTimeout(() => {
+            alert("O jogo acabou, o Vencedor foi o jogador "+ playerTime)
+        }, 10);
+    }
+    
+    updateSquare(position)
 }
+function updateSquare(position) {
+    let square = document.getElementById(position.toString());
+    let symbol = board[position];
+    square.innerHTML = `<div class='${symbol}'></div>`
+}
+
+function resetGame(){
+    let squares = document.querySelectorAll(".square");
+    board = ["", "", "", "", "", "", "", "", ""];
+    playerTime = 0;
+    gameOver = false;
+    squares.forEach((square) => {
+    square.innerHTML = ""})
+
+}
+
