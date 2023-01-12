@@ -12,14 +12,14 @@ function handleClick(event){
     let jogador;
 
     if(playerTime == 0){
-        jogador = "O"
+        jogador = "Escudo"
     }else{
-        jogador = "X"
+        jogador = "espada"
     }
 
     if(handleMove(position)){
         setTimeout(() => {
-            alert("O jogo acabou, o Vencedor foi o jogador "+ jogador)
+            alert("O jogo acabou, o Vencedor foi o jogador usando "+ jogador)
         }, 10);
     }
     
