@@ -9,10 +9,17 @@ document.addEventListener('DOMContentLoaded',()=>{
 function handleClick(event){
     let square= event.target
     let position= square.id
+    let jogador;
+
+    if(playerTime == 0){
+        jogador = "O"
+    }else{
+        jogador = "X"
+    }
 
     if(handleMove(position)){
         setTimeout(() => {
-            alert("O jogo acabou, o Vencedor foi o jogador "+ playerTime)
+            alert("O jogo acabou, o Vencedor foi o jogador "+ jogador)
         }, 10);
     }
     
